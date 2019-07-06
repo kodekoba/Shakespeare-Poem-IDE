@@ -11,7 +11,7 @@
 
 
 
-
+// import MyComponent from './exporting.js'
 
 
 
