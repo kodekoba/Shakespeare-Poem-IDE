@@ -6,7 +6,8 @@ export function objAssemblyComputedProps(){
   const myHero = { // when I create a new object
     isGood: true, //  I can pass in my own key value pairs
     superPower,   //  or I can use this short hand to add
-    weaknesses    //  varaibles I've already created
+    weaknesses,   //  varaibles I've already created
+    cape
   }
   
   console.log('myHero = ', myHero)

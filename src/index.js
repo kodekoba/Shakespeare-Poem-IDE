@@ -7,9 +7,10 @@ import {
     // constAndLet,
     // arrowFunctions,
     // destructuring,
-    // objAssemblyComputedProps
-    // spreadOperator
-    templateLiterals
+    // objAssemblyComputedProps,
+    // spreadOperator,
+    // templateLiterals,
+    // functionArgs,
     } from './examples';
 
 // constAndLet();
@@ -17,7 +18,8 @@ import {
 // destructuring();
 // objAssemblyComputedProps();
 // spreadOperator();
-templateLiterals();
+// templateLiterals();
+// functionArgs();
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
