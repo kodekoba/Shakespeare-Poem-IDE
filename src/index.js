@@ -3,9 +3,21 @@ import ReactDOM from 'react-dom';
 // import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {constAndLet} from './examples';
+import {
+    // constAndLet,
+    // arrowFunctions,
+    // destructuring,
+    // objAssemblyComputedProps
+    // spreadOperator
+    templateLiterals
+    } from './examples';
 
-constAndLet();
+// constAndLet();
+// arrowFunctions();
+// destructuring();
+// objAssemblyComputedProps();
+// spreadOperator();
+templateLiterals();
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
