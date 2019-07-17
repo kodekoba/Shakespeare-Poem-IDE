@@ -1,8 +1,19 @@
 import React, { Component } from 'react'
 import {Markup, Editor, Container, Column, Row, RuleInput, RuleLabel, StyleInput, Button, Document} from './styled'
 import hljs from 'highlight.js'
+import { 
+  rando, 
+  getRandomPoem, 
+} from './utils' 
 
+// console.log(rando)
+// console.log(rando.color())
 class App extends Component {
+
+  // constructor(props) { //example
+  //   super(props)
+  //   // 
+  // }
 
   state = {
     editor: "",
@@ -20,7 +31,7 @@ class App extends Component {
     })
   }
 
-  rules = () => {
+  get rules() {
     let {rules} = this.state
     let array = []
     let fields = ['name', 'begin', 'end']
@@ -103,9 +114,9 @@ class App extends Component {
       }
       let {className, begin, end} = newRule
       if (
-        className.length > 1 &&
-        begin.length > 1 &&
-        end.length > 1
+        className.length > 0 &&
+        begin.length > 0 &&
+        end.length > 0
       ) {
         begin = new RegExp(begin)
         end = new RegExp(end)
@@ -135,16 +146,34 @@ class App extends Component {
 
     let newStyles = "".concat(styles).replace(",", "")
 
+    while (newStyles.includes('random')) {
+      newStyles = newStyles.replace('random', rando.color())
+    }
+
     return newStyles
+  }
+
+  getRandomText = async () => {
+    try {
+      let poem = await getRandomPoem()
+      this.handleChange({
+        target: {
+          name: 'editor',
+          value: poem
+        }
+      })
+    } catch (error) {
+      console.log("getRandomPoem error: ", error)
+    }
   }
 
   render() {
     let {editor} = this.state
-    let {handleChange, rules, newFields, convertToMarkup, prepareStyles} = this
+    let {handleChange, rules, newFields, convertToMarkup, prepareStyles, getRandomText} = this
     return (
       <Container>
         <Column>
-          {rules()}
+          {rules}
           <Button
             onClick={newFields}
           >
@@ -152,7 +181,9 @@ class App extends Component {
           </Button>
         </Column>
         <Column>
-          <Button>
+          <Button
+            onClick={getRandomText}
+          >
             Random Text
           </Button>
           <Document>

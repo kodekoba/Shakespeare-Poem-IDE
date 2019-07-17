@@ -11,6 +11,7 @@ import {
     // spreadOperator,
     // templateLiterals,
     // functionArgs,
+    // promises,
     } from './examples';
 
 // constAndLet();
@@ -20,6 +21,7 @@ import {
 // spreadOperator();
 // templateLiterals();
 // functionArgs();
+// promises();
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
